@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/agri-server/recommendation")
-public class RecommendationController {
+public class RecomendacaoController {
 
     public static ObjectMapper jsonDealler = new JsonMapper();
 
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/calculate")
-    public void getUserData(@RequestBody UserInfo userInfo) {
+    public void getUserInfo(@RequestBody UserInfo userInfo) {
         System.out.println("Dados recebidos:");
-        System.out.println("Tipo da Especie: " + userInfo.getTipoEspecie());
+        System.out.println("Tipo da Especie: " + userInfo.isTipoEspecie());
         System.out.println("Largura da Faixa: " + userInfo.getLarguraFaixa());
         System.out.println("Distancia de linhas: " + userInfo.getDistanciaLinhas());
         System.out.println("Base: " + userInfo.getBases());

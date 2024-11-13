@@ -16,7 +16,7 @@ import lombok.ToString;
 @ToString
 public class UserInfo {
 
-    public UserInfo(String status, int tipoEspecie, float larguraFaixa, float distanciaLinhas, float bases, float SMP, float CTCph7, float argila, float P, float K) {
+    public UserInfo(String status, boolean tipoEspecie, float larguraFaixa, float distanciaLinhas, float bases, float SMP, float CTCph7, float argila, float P, float K) {
         this.tipoEspecie = tipoEspecie;
         this.larguraFaixa = larguraFaixa;
         this.distanciaLinhas = distanciaLinhas;
@@ -30,7 +30,7 @@ public class UserInfo {
     
     
     private String status;
-    private int tipoEspecie;
+    private boolean tipoEspecie;
     private float larguraFaixa;
     private float distanciaLinhas;
     private float bases;
