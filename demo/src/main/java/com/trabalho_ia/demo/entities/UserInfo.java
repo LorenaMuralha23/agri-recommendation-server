@@ -8,7 +8,7 @@ import lombok.ToString;
 
 /**
  *
- * @author 
+ * @author Lorena Muralha
  */
 @Getter
 @Setter
