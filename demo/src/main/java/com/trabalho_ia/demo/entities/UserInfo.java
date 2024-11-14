@@ -7,7 +7,11 @@ import lombok.ToString;
 
 /**
  *
+<<<<<<< HEAD
  * @author
+=======
+ * @author Lorena Muralha
+>>>>>>> e2f3d8ac483db11f113738c9d1f0ef47d521ccd5
  */
 @Getter
 @Setter
