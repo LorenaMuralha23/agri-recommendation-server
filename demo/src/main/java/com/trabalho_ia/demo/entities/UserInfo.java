@@ -1,6 +1,5 @@
 package com.trabalho_ia.demo.entities;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,13 +7,24 @@ import lombok.ToString;
 
 /**
  *
- * @author 
+ * @author
  */
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 public class UserInfo {
+
+    private String status;
+    private boolean tipoEspecie;
+    private float larguraFaixa;
+    private float distanciaLinhas;
+    private float bases;
+    private float smp;
+    private float ctcPH7;
+    private float argila;
+    private float p;
+    private float k;
 
     public UserInfo(String status, boolean tipoEspecie, float larguraFaixa, float distanciaLinhas, float bases, float SMP, float CTCph7, float argila, float P, float K) {
         this.tipoEspecie = tipoEspecie;
@@ -27,17 +37,5 @@ public class UserInfo {
         this.p = P;
         this.k = K;
     }
-    
-    
-    private String status;
-    private boolean tipoEspecie;
-    private float larguraFaixa;
-    private float distanciaLinhas;
-    private float bases;
-    private float smp;
-    private float ctcPH7;
-    private float argila;
-    private float p;
-    private float k;
-    
+
 }

@@ -1,17 +1,16 @@
 package com.trabalho_ia.demo.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.trabalho_ia.demo.entities.UserInfo;
 import com.trabalho_ia.demo.services.CalcarioService;
+import com.trabalho_ia.demo.services.FuzzyService;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
 
 /**
  *
@@ -20,15 +19,15 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/agri-server/recommendation")
 public class RecomendacaoController {
-
-    public static ObjectMapper jsonDealler = new JsonMapper();
+    
+    @Autowired
+    private FuzzyService fuzzyService;
 
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/calculate")
     public void getUserInfo(@RequestBody UserInfo userInfo) {
-        
-       
-
+        String fuzzyResponse = fuzzyService.calculaFuzzy(userInfo.getCtcPH7(), userInfo.getArgila(), userInfo.getP(), userInfo.getK());
+        System.out.println(fuzzyResponse);
     }
 
     @PostConstruct
