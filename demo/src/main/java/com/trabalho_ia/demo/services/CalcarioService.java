@@ -23,29 +23,32 @@ public class CalcarioService {
     6,0 = V 75% e pH 6,5 = V 85%.*/
     public float calculaDoseCalcario(boolean tipoEspecie, float larguraFaixa, float distanciaLinha, float SMP, float bases, float CTC) {
         float phReferencia = 6.0f;
-        float v1 = 0.75f;
+        float v1 = 75.0f;
 
         if (true) {
             phReferencia = 5.5f;
-            v1 = 0.65f;
+            v1 = 65.0f;
         }
 
         float NC = calculaNC(v1, bases, CTC);
         float PRNT = definePRNT(SMP, phReferencia);
 
-        float doseCalcario = NC * (larguraFaixa / distanciaLinha) * (100 / PRNT);
+        float doseCalcario = (NC * (larguraFaixa / distanciaLinha)) * (100 / PRNT);
 
         return doseCalcario;
     }
 
     //NC = [(V1-bases)/100] x CTCpH 7,0
+    //-> NC = [(65 - 82.42)/100] * 19.52
     public float calculaNC(float v1, float bases, float CTC) {
+//        v1 *= 100;
         float NC = ((v1 - bases) / 100) * CTC;
         return NC;
     }
 
     public float definePRNT(float SMP, float phReferencia) {
         float start = 4.4f;
+        
         if (phReferencia == 5.5) {
             //logica da macieira
             if (SMP <= 4.4) {
@@ -56,8 +59,8 @@ public class CalcarioService {
                 return 0;
             }
             
-            for (int i = 1; i <= 28; i++) {
-                if (start < SMP && SMP <= start + 0.1) {
+            for (int i = 0; i <= 24; i++) {
+                if (start <= SMP && SMP <= start + 0.1) {
                     return phMacieira[i];
                 }
                 start += 0.1;
@@ -74,7 +77,7 @@ public class CalcarioService {
             return 0;
         }
 
-        for (int i = 1; i <= 28; i++) {
+        for (int i = 0; i <= 28; i++) {
             if (start < SMP && SMP <= start + 0.1) {
                 return phConsorciacao[i];
             }
@@ -83,4 +86,6 @@ public class CalcarioService {
 
         return 0;
     }
+    
+    
 }
