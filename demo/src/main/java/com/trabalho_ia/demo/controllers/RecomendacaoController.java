@@ -29,11 +29,4 @@ public class RecomendacaoController {
         System.out.println(fuzzyResponse);
     }
 
-    @PostConstruct
-    public void testing() {
-        CalcarioService service = new CalcarioService();
-        System.out.println("Dose de calcário macieira: " + service.calculaDoseCalcario(true, 6.945f));
-        System.out.println("Dose de calcário consorciacao: " + service.calculaDoseCalcario(false, 5.51f));
-    }
-
 }
