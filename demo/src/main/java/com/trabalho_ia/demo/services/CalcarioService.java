@@ -62,5 +62,9 @@ public class CalcarioService {
 
         return 0;
     }
+    
+    public float calculaTotalCalcarioArea(float quantidadeCalcPorHectare, float area){
+        return quantidadeCalcPorHectare * area;
+    }
 
 }

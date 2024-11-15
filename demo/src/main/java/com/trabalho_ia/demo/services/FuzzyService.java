@@ -43,4 +43,12 @@ public class FuzzyService {
         
         return response.getBody();
     }
+    
+    public float calculaTotalFosforoparaArea(float pPorHectare, float areaTotal){
+        return pPorHectare * areaTotal;
+    }
+    
+    public float calculaTotalPotassioparaArea(float kPorHectare, float areaTotal){
+        return kPorHectare * areaTotal;
+    }
 }
