@@ -24,6 +24,7 @@ public class FuzzyService {
     public static ObjectMapper jsonDealler = new JsonMapper();
     private final String pythonServiceUrl = "http://localhost:8000/dashboard/process_request/";
     
+    //conecta com o microsserviço de fuzzy
     public String calculaFuzzy(float ctc, float argila, float P, float K){
         ObjectNode jsonNode = jsonDealler.createObjectNode();
 
