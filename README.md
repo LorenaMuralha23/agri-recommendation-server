@@ -13,7 +13,7 @@ Além disso, o projeto buscou melhorar habilidades em lógica de programação, 
 Se tiver qualquer feedback para ajudar a melhorar o projeto, o código, ou a estrutura, ficarei muito grata! 💡
 
 - **E-mail:** marialorenamuralhalima2301@gmail.com
-- **LinkedIn:** [Clique aqui](<[www.linkedin.com/in/dev-maria-lorena](https://www.linkedin.com/in/maria-lorena-muralha-lima-093a13234/)">)
+- **LinkedIn:** [Clique aqui]([www.linkedin.com/in/dev-maria-lorena](https://www.linkedin.com/in/maria-lorena-muralha-lima-093a13234/))
 
 Este projeto é **gratuito** para qualquer uso!
 
@@ -160,6 +160,6 @@ Ao enviar o JSON, a resposta será no formato:
 Contribuições são muito bem-vindas! Envie quantos **pull requests** (PRs) quiser; terei prazer em analisá-los.
 
 - **E-mail:** marialorenamuralhalima2301@gmail.com
-- **LinkedIn:** [Clique aqui](<[www.linkedin.com/in/dev-maria-lorena](https://www.linkedin.com/in/maria-lorena-muralha-lima-093a13234/)">)
+- **LinkedIn:** [Clique aqui]([www.linkedin.com/in/dev-maria-lorena](https://www.linkedin.com/in/maria-lorena-muralha-lima-093a13234/))
 
 Muito obrigada! ❤️
