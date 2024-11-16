@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
- * @author Lorena Muralha
+ * Controlador responsável por gerenciar as requisições relacionadas a 
+ * recomendações agrícolas de calagem e adubação.
+ * Ele utiliza serviços fuzzy e cálculos para determinar as doses de calcário 
+ * e fertilizantes (fósforo e potássio) com base nos dados do usuário.
+ * 
+ * @author Maria Lorena Muralha Lima
  */
 @RestController
 @RequestMapping("/agri-server/recommendation")
@@ -32,6 +36,16 @@ public class RecomendacaoController {
     @Autowired
     private CalcarioService calcarioService;
 
+    
+     /**
+     * Processa a requisição do cliente com os dados fornecidos para calcular
+     * as recomendações de calagem e adubação. 
+     * 
+     * @param userInfo Objeto contendo os dados fornecidos pelo usuário, como CTC, pH,
+     *                 argila, fósforo, potássio, e outros relacionados à área e espécie.
+     * @return Uma resposta HTTP contendo o resultado em formato JSON com informações
+     *         como doses recomendadas de calcário, fósforo, potássio e totais para a área.
+     */
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/calculate")
     public ResponseEntity<String> getUserRequest(@RequestBody UserInfo userInfo) {
@@ -56,6 +70,19 @@ public class RecomendacaoController {
         }
     }
 
+    
+    /**
+     * Cria uma resposta em formato JSON com as informações calculadas.
+     * 
+     * @param status Status do processamento, como "success" ou "failed".
+     * @param doseCalcario Dose de calcário recomendada por hectare.
+     * @param doseCalcarioTotal Total de calcário para toda a área.
+     * @param potassioHectare Valor recomendado de potássio por hectare.
+     * @param totalPotassioArea Total de potássio para toda a área.
+     * @param fosforoHectare Valor recomendado de fósforo por hectare.
+     * @param totalFosforoArea Total de fósforo para toda a área.
+     * @return Uma string em formato JSON contendo os dados informados.
+     */
     public String criaJsonResponse(String status, float doseCalcario, float doseCalcarioTotal,
             float potassioHectare, float totalPotassioArea, float fosforoHectare, float totalFosforoArea) {
 
