@@ -85,7 +85,7 @@ Python 3.11.5
    Substitua `seu-diretório` pelo caminho onde você salvou o repositório.
 
    ```bash
-   cd seu-diretório\server
+   cd seu-diretório\agri-recommendation-server
    ```
 
 3. **Execute o Servidor:**
