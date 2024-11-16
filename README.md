@@ -152,7 +152,6 @@ Ao enviar o JSON, a resposta será no formato:
 - **Linguagem Principal:** Java
 - **Linguagem Secundária:** Python
 - **Framework:** Spring Framework
-
 ---
 
 # Contribuindo 🤝
