@@ -36,7 +36,6 @@ public class RecomendacaoController {
     @PostMapping(value = "/calculate")
     public ResponseEntity<String> getUserRequest(@RequestBody UserInfo userInfo) {
         try {
-            String status = "success";
             String fuzzyResponse = fuzzyService.calculaFuzzy(userInfo.getCtcPH7(), userInfo.getArgila(), userInfo.getP(), userInfo.getK());
             FuzzyResponseInfo fuzzyInfo = FuzzyService.jsonDealler.readValue(fuzzyResponse, FuzzyResponseInfo.class);
 
@@ -46,7 +45,7 @@ public class RecomendacaoController {
             float totalPotassioArea = fuzzyService.calculaTotalPotassioparaArea(fuzzyInfo.getValorPotassioHectare(), userInfo.getArea());
             float totalFosforoArea = fuzzyService.calculaTotalFosforoparaArea(fuzzyInfo.getValorFosforoHectare(), userInfo.getArea());
 
-            String response = criaJsonResponse(status, doseCalcario, doseCalcarioTotal, fuzzyInfo.getValorPotassioHectare(), totalPotassioArea, fuzzyInfo.getValorFosforoHectare(), totalFosforoArea);
+            String response = criaJsonResponse("success", doseCalcario, doseCalcarioTotal, fuzzyInfo.getValorPotassioHectare(), totalPotassioArea, fuzzyInfo.getValorFosforoHectare(), totalFosforoArea);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (JsonProcessingException ex) {
