@@ -36,8 +36,7 @@ public class RecomendacaoController {
     @PostMapping(value = "/calculate")
     public ResponseEntity<String> getUserRequest(@RequestBody UserInfo userInfo) {
         try {
-            //{"status": "success", "valor_potassio_hectare": 47.22, "valor_fosforo_hectare": 133.56}
-            String status = "failed";
+            String status = "success";
             String fuzzyResponse = fuzzyService.calculaFuzzy(userInfo.getCtcPH7(), userInfo.getArgila(), userInfo.getP(), userInfo.getK());
             FuzzyResponseInfo fuzzyInfo = FuzzyService.jsonDealler.readValue(fuzzyResponse, FuzzyResponseInfo.class);
 
@@ -46,16 +45,6 @@ public class RecomendacaoController {
 
             float totalPotassioArea = fuzzyService.calculaTotalPotassioparaArea(fuzzyInfo.getValorPotassioHectare(), userInfo.getArea());
             float totalFosforoArea = fuzzyService.calculaTotalFosforoparaArea(fuzzyInfo.getValorFosforoHectare(), userInfo.getArea());
-
-            if (
-                    fuzzyInfo.getValorFosforoHectare() != 0
-                    && fuzzyInfo.getValorPotassioHectare() != 0
-                    && totalFosforoArea != 0
-                    && totalPotassioArea != 0
-                    && doseCalcario != 0
-                    && doseCalcarioTotal != 0) {
-                status = "success";
-            }
 
             String response = criaJsonResponse(status, doseCalcario, doseCalcarioTotal, fuzzyInfo.getValorPotassioHectare(), totalPotassioArea, fuzzyInfo.getValorFosforoHectare(), totalFosforoArea);
 
