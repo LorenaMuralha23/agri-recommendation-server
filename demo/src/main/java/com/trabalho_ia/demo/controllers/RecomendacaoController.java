@@ -60,11 +60,14 @@ public class RecomendacaoController {
             float totalFosforoArea = fuzzyService.calculaTotalFosforoparaArea(fuzzyInfo.getValorFosforoHectare(), userInfo.getArea());
 
             String response = criaJsonResponse("success", doseCalcario, doseCalcarioTotal, fuzzyInfo.getValorPotassioHectare(), totalPotassioArea, fuzzyInfo.getValorFosforoHectare(), totalFosforoArea);
-
+            System.out.println("[SERVER SAYS] Operação realizada com sucesso! [SERVER SAYS]");
+            System.out.println("Resposta a ser enviada: " + response);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (JsonProcessingException ex) {
             Logger.getLogger(RecomendacaoController.class.getName()).log(Level.SEVERE, null, ex);
             
+            System.out.println("[SERVER SAYS] Algo deu errado! [SERVER SAYS]");
+            System.out.println(userInfo.toString());
             String response = "{\"status\": \"failed\"}";
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
